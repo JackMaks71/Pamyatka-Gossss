@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Памятка УК + Процессуалка">
+  <title>УК + Процессуалка — Памятка</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --f: #f8fafc;
+      --r: #7dd3fc;
+      --fr: #a5b4fc;
+      --star: #fbbf24;
+      --danger: #f87171;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.5);
+    }
+    .card-header {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .card-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .card-body {
+      padding: 24px 28px 32px;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding: 14px 18px;
+      background: #0f172a;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot.f { background: var(--f); }
+    .dot.r { background: var(--r); }
+    .dot.fr { background: var(--fr); }
+    .section {
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+    }
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #0f172a;
+      text-align: left;
+      padding: 12px 14px;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td {
+      background: rgba(56, 189, 248, 0.05);
+    }
+    .art {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .art.f { color: var(--f); }
+    .art.r { color: var(--r); }
+    .art.fr { color: var(--fr); }
+    .stars {
+      color: var(--star);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .proc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .proc-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .proc-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .proc-card ol {
+      padding-left: 18px;
+      font-size: 0.9rem;
+    }
+    .proc-card li {
+      margin-bottom: 6px;
+    }
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .time-item {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      gap: 10px;
+    }
+    .time-item span:last-child {
+      font-weight: 600;
+      color: var(--star);
+      white-space: nowrap;
+    }
+    .important {
+      background: rgba(248, 113, 113, 0.1);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 20px;
+    }
+    .important strong {
+      color: var(--danger);
+    }
+    .card-footer {
+      padding: 16px 28px;
+      background: #0f172a;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      .card-header { padding: 16px 18px; }
+      .card-body { padding: 18px; }
+      th, td { padding: 10px 12px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1>📋 УК + Процессуалка</h1>
+        <div class="badge">⭐ = 10 мин · ⭐ = 25 000 $</div>
+      </div>
+
+      <div class="card-body">
+        <div class="legend">
+          <span><span class="dot f"></span> Белый — F (федеральные)</span>
+          <span><span class="dot r"></span> Голубой — R (региональные)</span>
+          <span><span class="dot fr"></span> Синий — F/R</span>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Уголовный Кодекс</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Статья</th>
+                  <th>⭐</th>
+                  <th>Описание</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="art fr">6.1 (F/R)</td>
+                  <td class="stars">2</td>
+                  <td>Умышленное нанесение телесных повреждений средней степени тяжести (3+ удара рукой без потери сознания)</td>
+                </tr>
+                <tr>
+                  <td class="art fr">6.1.1 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Умышленное нанесение телесных повреждений тяжёлой степени тяжести (оружие / 3+ удара с потерей сознания)</td>
+                </tr>
+                <tr>
+                  <td class="art fr">6.2 (F/R)</td>
+                  <td class="stars">4</td>
+                  <td>Убийство — умышленное причинение смерти другому человеку</td>
+                </tr>
+                <tr>
+                  <td class="art f">6.3 (F)</td>
+                  <td class="stars">5</td>
+                  <td>Тяжкое убийство — убийство двух или более лиц</td>
+                </tr>
+                <tr>
+                  <td class="art fr">6.4 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Угроза убийством или причинением тяжкого вреда здоровью</td>
+                </tr>
+                <tr>
+                  <td class="art r">6.4.1 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Угроза с целью запугать человека</td>
+                </tr>
+                <tr>
+                  <td class="art r">6.5 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Умышленное нанесение телесных повреждений животному (вне охоты/самообороны)</td>
+                </tr>
+                <tr>
+                  <td class="art r">6.7 (R)</td>
+                  <td class="stars">3</td>
+                  <td>Воспрепятствование оказанию медицинской / первой помощи</td>
+                </tr>
+                <tr>
+                  <td class="art f">7.1 (F)</td>
+                  <td class="stars">5</td>
+                  <td>Похищение человека</td>
+                </tr>
+                <tr>
+                  <td class="art r">7.3 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Клевета, соединённая с обвинением лица в совершении преступления</td>
+                </tr>
+                <tr>
+                  <td class="art fr">9.2 (F/R)</td>
+                  <td class="stars">2</td>
+                  <td>Незаконное проникновение в жилище / на частную территорию (против воли владельца)</td>
+                </tr>
+                <tr>
+                  <td class="art fr">9.4 (F/R)</td>
+                  <td class="stars">2</td>
+                  <td>Необоснованный отказ от предоставления гос. услуг / преступное бездействие</td>
+                </tr>
+                <tr>
+                  <td class="art r">10.1 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Кража — тайное хищение чужого имущества</td>
+                </tr>
+                <tr>
+                  <td class="art fr">10.3 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Грабеж — открытое хищение чужого имущества</td>
+                </tr>
+                <tr>
+                  <td class="art fr">10.3.1 (F/R)</td>
+                  <td class="stars">4</td>
+                  <td>Ограбление с незаконным проникновением в жилище</td>
+                </tr>
+                <tr>
+                  <td class="art fr">10.4 (F/R)</td>
+                  <td class="stars">4</td>
+                  <td>Разбой — нападение с применением / угрозой насилия, опасного для жизни</td>
+                </tr>
+                <tr>
+                  <td class="art r">10.5 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Умышленное уничтожение / повреждение чужого имущества</td>
+                </tr>
+                <tr>
+                  <td class="art fr">10.6 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Умышленное уничтожение / повреждение государственного имущества</td>
+                </tr>
+                <tr>
+                  <td class="art fr">10.7 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Неправомерное завладение ТС (угон)</td>
+                </tr>
+                <tr>
+                  <td class="art fr">10.7.1 (F/R)</td>
+                  <td class="stars">4</td>
+                  <td>Неправомерное завладение государственным ТС</td>
+                </tr>
+                <tr>
+                  <td class="art r">10.9 (R)</td>
+                  <td class="stars">3</td>
+                  <td>Перевозка нелегальных / поддельных грузов без документов (дальнобои)</td>
+                </tr>
+                <tr>
+                  <td class="art r">11.3 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Браконьерство (5+ кг ущерба окружающей среде)</td>
+                </tr>
+                <tr>
+                  <td class="art r">12.6 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Хулиганство (в т.ч. с применением оружия / предметов)</td>
+                </tr>
+                <tr>
+                  <td class="art fr">12.7 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Незаконное проникновение / нахождение на закрытой территории</td>
+                </tr>
+                <tr>
+                  <td class="art fr">12.7.1 (F/R)</td>
+                  <td class="stars">4</td>
+                  <td>Незаконное проникновение на режимный объект / объект особого статуса</td>
+                </tr>
+                <tr>
+                  <td class="art fr">12.8 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Нарушение норм законодательства об обороте оружия</td>
+                </tr>
+                <tr>
+                  <td class="art fr">12.8.1 (F/R)</td>
+                  <td class="stars">5</td>
+                  <td>Нарушение оборота оружия с вовлечением гос. имущества / спецсредств</td>
+                </tr>
+                <tr>
+                  <td class="art f">12.9 (F)</td>
+                  <td class="stars">4</td>
+                  <td>Хищение огнестрельного оружия, комплектующих, спецсредств</td>
+                </tr>
+                <tr>
+                  <td class="art fr">13.1 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Незаконное кустарное производство и сбор наркотических веществ (любой размер)</td>
+                </tr>
+                <tr>
+                  <td class="art fr">13.2 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Хранение / сбыт / приобретение / перевозка наркотиков <strong>значительный размер</strong> (&gt; 3 г)</td>
+                </tr>
+                <tr>
+                  <td class="art fr">13.3 (F/R)</td>
+                  <td class="stars">5</td>
+                  <td>То же самое <strong>особо крупный размер</strong> (&gt; 20 г)</td>
+                </tr>
+                <tr>
+                  <td class="art r">13.4 (R)</td>
+                  <td class="stars">1</td>
+                  <td>Пропаганда наркотических средств</td>
+                </tr>
+                <tr>
+                  <td class="art f">13.5 (F)</td>
+                  <td class="stars">5</td>
+                  <td>Любые действия с наркотиками сотрудниками госструктур (независимо от объёма)</td>
+                </tr>
+                <tr>
+                  <td class="art f">13.6 (F)</td>
+                  <td class="stars">5</td>
+                  <td>Синтетические наркотики (Blue, White)</td>
+                </tr>
+                <tr>
+                  <td class="art r">13.7 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Употребление наркотиков вне специализированных мест</td>
+                </tr>
+                <tr>
+                  <td class="art f">14.3 (F)</td>
+                  <td class="stars">5</td>
+                  <td>Разглашение государственной тайны</td>
+                </tr>
+                <tr>
+                  <td class="art f">15.1 (F)</td>
+                  <td class="stars">4</td>
+                  <td>Превышение должностных полномочий</td>
+                </tr>
+                <tr>
+                  <td class="art f">15.1.1 (F)</td>
+                  <td class="stars">5</td>
+                  <td>Злоупотребление должностными полномочиями</td>
+                </tr>
+                <tr>
+                  <td class="art fr">15.3 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Самовольное присвоение полномочий должностного лица</td>
+                </tr>
+                <tr>
+                  <td class="art f">15.4 (F)</td>
+                  <td class="stars">3</td>
+                  <td>Получение взятки</td>
+                </tr>
+                <tr>
+                  <td class="art fr">15.5 (F/R)</td>
+                  <td class="stars">2</td>
+                  <td>Дача взятки</td>
+                </tr>
+                <tr>
+                  <td class="art f">15.6 (F)</td>
+                  <td class="stars">3</td>
+                  <td>Халатность</td>
+                </tr>
+                <tr>
+                  <td class="art fr">15.7 (F/R)</td>
+                  <td class="stars">2</td>
+                  <td>Провокация государственного служащего</td>
+                </tr>
+                <tr>
+                  <td class="art f">16.1.1 (F)</td>
+                  <td class="stars">2</td>
+                  <td>Воспрепятствование деятельности адвоката</td>
+                </tr>
+                <tr>
+                  <td class="art f">16.5 (F)</td>
+                  <td class="stars">3</td>
+                  <td>Заведомо незаконное задержание / содержание под стражей</td>
+                </tr>
+                <tr>
+                  <td class="art fr">16.15 (F/R)</td>
+                  <td class="stars">4</td>
+                  <td>Дача заведомо ложных показаний</td>
+                </tr>
+                <tr>
+                  <td class="art fr">16.19 (F/R)</td>
+                  <td class="stars">1–5</td>
+                  <td>Уклонение разыскиваемого от уголовной ответственности</td>
+                </tr>
+                <tr>
+                  <td class="art fr">17.1 (F/R)</td>
+                  <td class="stars">5</td>
+                  <td>Посягательство на жизнь и здоровье госслужащих</td>
+                </tr>
+                <tr>
+                  <td class="art fr">17.2 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Нанесение ударов / угроза насилия госслужащему</td>
+                </tr>
+                <tr>
+                  <td class="art fr">17.3 (F/R)</td>
+                  <td class="stars">2</td>
+                  <td>Оскорбление госслужащего при исполнении</td>
+                </tr>
+                <tr>
+                  <td class="art f">17.5 (F)</td>
+                  <td class="stars">4</td>
+                  <td>Самоуправство</td>
+                </tr>
+                <tr>
+                  <td class="art fr">17.6 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Неподчинение законным требованиям FIB / LSPD / LSCSD / USSS / SANG / прокуратуры</td>
+                </tr>
+                <tr>
+                  <td class="art r">17.7 (R)</td>
+                  <td class="stars">2</td>
+                  <td>Отказ от уплаты штрафа / возмещения ущерба</td>
+                </tr>
+                <tr>
+                  <td class="art r">17.9 (R)</td>
+                  <td class="stars">1</td>
+                  <td>Неоднократное оскорбление гражданина в присутствии представителя власти</td>
+                </tr>
+                <tr>
+                  <td class="art fr">17.10 (F/R)</td>
+                  <td class="stars">3</td>
+                  <td>Незаконная помеха при задержании / аресте</td>
+                </tr>
+                <tr>
+                  <td class="art fr">17.12 (F/R)</td>
+                  <td class="stars">4</td>
+                  <td>Побег при задержании / аресте</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="important">
+            <strong>⚠️ Важно (наркотики):</strong><br>
+            1 пакетик <b>Green</b> = 1 грамм &nbsp;·&nbsp;
+            1 «семечко Green» = 2 грамма &nbsp;·&nbsp;
+            1 «куст Green» = 5 граммов
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Процессуалка</div>
+          <div class="proc-grid">
+            <div class="proc-card">
+              <h3>Задержание</h3>
+              <ol>
+                <li>Наручники</li>
+                <li>Представиться</li>
+                <li>Разъяснить статьи</li>
+                <li>Миранда</li>
+                <li>Доставить в КПЗ</li>
+                <li>Досмотр документов (УДО, лицензия адвоката)</li>
+                <li>Первичный обыск</li>
+                <li>Снять маску + сверить фоторобот</li>
+                <li>Реализация прав (адвокат)</li>
+                <li>Допрос (если нужно)</li>
+              </ol>
+            </div>
+            <div class="proc-card">
+              <h3>Арест (гос / не гос)</h3>
+              <ol>
+                <li>Вторичный обыск</li>
+                <li>Выдать розыск</li>
+                <li>Повторить статьи с разъяснением</li>
+                <li>Посадить в КПЗ</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Временные рамки</div>
+          <div class="time-grid">
+            <div class="time-item">
+              <span>Ответ адвоката / прокурора</span>
+              <span>3 мин</span>
+            </div>
+            <div class="time-item">
+              <span>Приезд адвоката / прокуратуры</span>
+              <span>10 мин</span>
+            </div>
+            <div class="time-item">
+              <span>Ответ + приезд начальства</span>
+              <span>10 + 10 мин</span>
+            </div>
+            <div class="time-item">
+              <span>Конфиденциальная беседа с адвокатом</span>
+              <span>10 мин</span>
+            </div>
+            <div class="time-item">
+              <span>Телефонный звонок</span>
+              <span>3 мин</span>
+            </div>
+            <div class="time-item">
+              <span>Ответ + приезд ОГП</span>
+              <span>10 + 10 мин</span>
+            </div>
+            <div class="time-item">
+              <span>Время на задержание</span>
+              <span>1 час</span>
+            </div>
+            <div class="time-item">
+              <span>Время на допрос</span>
+              <span>2 часа</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Если мешают процессуальным действиям</div>
+          <div class="proc-card">
+            <p style="margin-bottom: 12px; color: var(--muted); font-size: 0.9rem;">
+              (сотрудники 7, 8, 9, 10, 13, 14)
+            </p>
+            <ol>
+              <li>Сотрудники из пунктов <b>1, 5, 6, 12</b> могут потребовать выйти из помещения.</li>
+              <li>При отказе — имеют право вывести в наручниках <b>без инкриминирования статей УК</b>.</li>
+              <li>При повторном нарушении — нарушитель несёт ответственность по закону.</li>
+              <li>В закрытой комнате для задержания могут находиться <b>только субъекты задержания</b>.</li>
+              <li>Непричастные лица должны находиться на расстоянии <b>не менее 6 метров</b>.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        Памятка для сотрудников · F / R / F/R · Актуальная версия
+      </div>
+    </div>
+  </div>
+</body>
+</html>
